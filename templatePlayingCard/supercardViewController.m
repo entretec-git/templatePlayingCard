@@ -1,10 +1,7 @@
 //
 //  supercardViewController.m
 //  templatePlayingCard
-//
-//  Created by mike on 17/02/13.
-//  Copyright (c) 2013 mike. All rights reserved.
-//
+
 
 #import "supercardViewController.h"
 #import "PlayingCardView.h"
