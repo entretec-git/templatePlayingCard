@@ -8,8 +8,6 @@
 #import "PlayingCard.h"
 #import "PlayingCardDeck.h"
 
-
-
 @interface supercardViewController ()
 @property (weak, nonatomic) IBOutlet PlayingCardView *playingCardView;
 @property   (strong,nonatomic) Deck *deck;
