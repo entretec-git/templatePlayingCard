@@ -28,8 +28,6 @@
     [self drawRandomPlayingCard];
     
     [playingCardView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:playingCardView action:@selector(pinch:)]];
-
-
 }
 
 -(void) drawRandomPlayingCard
@@ -40,8 +38,6 @@
         self.playingCardView.rank = playingCard.rank;
         self.playingCardView.suit = playingCard.suit;
     }
-
-
 }
 
 - (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
@@ -55,8 +51,7 @@
                         self.playingCardView.faceUp = !self.playingCardView.faceUp;
                     }
                     completion:NULL];
-    
-   
+
 }
 
 
