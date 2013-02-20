@@ -3,7 +3,7 @@
 //  superCard
 
 #define ROUND_RADIUS 12
-#define CORNERFONTSIZE 0.20
+#define CORNERFONTSIZE 0.15
 #define CORNEROFFSET 2.0
 #define DEFAULT_FACE_CARD_SCALE_FACTOR 0.8
 
@@ -19,6 +19,14 @@
 
 @synthesize faceCardScaleFactor = _faceCardScaleFactor;
 
+
+-(NSString *)rankString
+{
+    NSArray * locString =[PlayingCard rankStrings] ;
+    
+    return [locString objectAtIndex:self.rank ];
+    
+}
 
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
 {
@@ -55,8 +63,8 @@
     [roundedRect stroke];
     
     if (self.faceUp){
-    
-    UIImage *faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@.jpg",[self rankString],self.suit]];
+              
+        UIImage *faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@.jpg",self.rankString,self.suit]];
     
     if (faceImage) {
         CGRect imageRect = CGRectInset(self.bounds, self.bounds.size.width * (1.0 - self.faceCardScaleFactor),
@@ -67,27 +75,14 @@
         [self drawPips];
         
     }
-    
-    
-    
+
     [self drawCorners];
     } else{
         
         [[UIImage imageNamed:@"card-back.png"] drawInRect:self.bounds];
-
-
     }
-        
-    
-    
+
  }
-
-
-
-- (NSString *) rankString {
-    return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"][self.rank];
-    
-}
 
 
 #define PIP_FONT_SCALE_FACTOR 0.20
@@ -170,8 +165,10 @@
     
     UIFont *cornerFont = [UIFont systemFontOfSize:self.bounds.size.width * CORNERFONTSIZE];
     
-    NSAttributedString * cornerText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@",[self rankString],self.suit] 
-                                            attributes:@{NSParagraphStyleAttributeName : paragraphStyle, NSFontAttributeName : cornerFont}];
+    NSAttributedString * cornerText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@",[self rankString],self.suit]
+                                                                      attributes:@{NSParagraphStyleAttributeName
+                                                                                :paragraphStyle, NSFontAttributeName
+                                                                                :cornerFont}];
    
     CGRect textBounds;
     textBounds.origin  = CGPointMake(CORNEROFFSET, CORNEROFFSET);

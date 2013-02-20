@@ -16,21 +16,16 @@
     
     if (self) {
         for (NSString *symbol in [SetCard validSymbols]) {
+      
             for (NSUInteger number = 1; number <= [SetCard maxNumber]; number++) {
-                    //                        if (number==1) {
-                    //                            [@"r" stringByAppendingString:symbol];
-                    //
-                    //                        }
-                
+            
                 for (NSString *shade in [SetCard validShades]) {
                     for (NSString *color in [SetCard validColors]) {
                         SetCard *card = [[SetCard alloc] init];
 
                         card.symbol = symbol;                    
                         card.number = number;
-                       
                         card.shade = shade;
-                        
                         card.color = color;
                         
                         [self addCard:card atTop:YES];

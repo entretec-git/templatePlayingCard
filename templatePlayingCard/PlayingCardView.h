@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayingCard.h"
 
 @interface PlayingCardView : UIView
 
